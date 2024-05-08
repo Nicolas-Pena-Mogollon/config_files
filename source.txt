@@ -1,0 +1,7 @@
+<Proxy balancer://testcluster stickysession=JSESSIONID> 
+BalancerMember ajp://direcciónIP:8080 min=10 max=100 route=tomcatnodo1 
+loadfactor=1 
+BalancerMember ajp://direcciónIP:8080 min=20 max=200 route=tomcatnodo2 
+loadfactor=1 
+</Proxy> 
+ProxyPass /examples balancer://testcluster/example
